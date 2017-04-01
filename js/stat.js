@@ -39,19 +39,15 @@ window.renderStatistics= function(ctx, names , times) {
 
   for(var i=0; i<times.length; i++) {
 
-
     ctx.fillStyle= 'black';
     ctx.fillText(parseInt(times[i]), 140+i*100, 230+times[i]*step);
   }
-
-    debugger //
-   function getRandomBlue() {
-
-    var randomBlue= Math.random();
+    function getRandomBlue() {
+     return Math.random();
   }
     var randomBlue= getRandomBlue();
-
-    console.log(randomBlue.toFixed(2));
+    var RGBArandomBlue= randomBlue.toFixed(1);
+     console.log(RGBArandomBlue);
 
   for(var i=0; i<names.length; i++) {
     var name=names[i]
@@ -61,7 +57,7 @@ window.renderStatistics= function(ctx, names , times) {
     } else {
 
 
-      ctx.fillStyle= 'rgba(0, 0, 255, 1)';
+      ctx.fillStyle= 'rgba(0, 0, 255, RGBArandomBlue)';
       ctx.fillRect(140+100*i, 240, 40, times[i]*step);
 
     }

@@ -40,10 +40,10 @@ window.renderStatistics= function(ctx, names , times) {
 
   for(var i=0; i<times.length; i++) {
 
-
     ctx.fillStyle= 'black';
     ctx.fillText(parseInt(times[i]), 140+i*100, 230+times[i]*step);
   }
+<<<<<<< HEAD
 
 debugger
    function getRandomBlue() {
@@ -54,7 +54,7 @@ var  randomBlue= getRandomBlue();
 var  RGBArandomBlue= randomBlue.toFixed(1);
 
       debugger
-v ar rgbacolor = "rgba(0, 0, 255,"+ RGBArandomBlue")";
+var rgbacolor = "rgba(0, 0, 255,"+ RGBArandomBlue")";
 
 
 
@@ -64,6 +64,7 @@ v ar rgbacolor = "rgba(0, 0, 255,"+ RGBArandomBlue")";
         ctx.fillStyle= 'rgba(255, 0, 0, 1)';
         ctx.fillRect(140+100*i, 240, 40, times[i]*step);
     } else {
+
 
       ctx.fillStyle= "rgba(0, 0, 255, 1)";
       ctx.fillRect(140+100*i, 240, 40, times[i]*step);

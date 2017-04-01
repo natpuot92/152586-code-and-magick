@@ -28,7 +28,7 @@ window.renderStatistics= function(ctx, names , times) {
 
   for(var i=0; i<times.length; i++) {
 
-       ctx.font = '16px PT Mono';
+    ctx.font = '16px PT Mono';
     ctx.fillStyle= 'black';
     ctx.fillText(names[i], 140+i*100, 260);
   }
@@ -38,12 +38,34 @@ window.renderStatistics= function(ctx, names , times) {
   var step = -150/max;
 
   for(var i=0; i<times.length; i++) {
-    ctx.fillStyle= 'red';
-    ctx.fillRect(140+100* i, 240, 40, times[i]*step);
+
 
     ctx.fillStyle= 'black';
-    ctx.fillText(parseInt(times[i]), 140+i*100, 260+ times[i]*step);
-
+    ctx.fillText(parseInt(times[i]), 140+i*100, 230+times[i]*step);
   }
+
+    debugger //
+   function getRandomBlue() {
+
+    var randomBlue= Math.random();
+  }
+    var randomBlue= getRandomBlue();
+
+    console.log(randomBlue.toFixed(2));
+
+  for(var i=0; i<names.length; i++) {
+    var name=names[i]
+    if (name === 'Вы') {
+        ctx.fillStyle= 'rgba(255, 0, 0, 1)';
+        ctx.fillRect(140+100*i, 240, 40, times[i]*step);
+    } else {
+
+
+      ctx.fillStyle= 'rgba(0, 0, 255, 1)';
+      ctx.fillRect(140+100*i, 240, 40, times[i]*step);
+
+    }
+  }
+
 }
 

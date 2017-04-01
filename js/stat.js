@@ -43,19 +43,22 @@ window.renderStatistics= function(ctx, names , times) {
     ctx.fillStyle= 'black';
     ctx.fillText(parseInt(times[i]), 140+i*100, 230+times[i]*step);
   }
-<<<<<<< HEAD
 
-debugger
+
+
+
    function getRandomBlue() {
-    return Math.random();
+  debugger
+   var  randomBlue= Math.random();
+    var  RGBArandomBlue= randomBlue.toFixed(1);
+     if (RGBArandomBlue<0.1) {
+       var  randomBlue= Math.random();
+    var  RGBArandomBlue= randomBlue.toFixed(1);
+      return RGBArandomBlue;
+     } else {
+      return RGBArandomBlue;
+    }
    }
-
-var  randomBlue= getRandomBlue();
-var  RGBArandomBlue= randomBlue.toFixed(1);
-
-      debugger
-var rgbacolor = "rgba(0, 0, 255,"+ RGBArandomBlue")";
-
 
 
   for(var i=0; i<names.length; i++) {
@@ -64,9 +67,7 @@ var rgbacolor = "rgba(0, 0, 255,"+ RGBArandomBlue")";
         ctx.fillStyle= 'rgba(255, 0, 0, 1)';
         ctx.fillRect(140+100*i, 240, 40, times[i]*step);
     } else {
-
-
-      ctx.fillStyle= "rgba(0, 0, 255, 1)";
+      ctx.fillStyle= 'rgba(0, 0, 255,' + getRandomBlue() +')';
       ctx.fillRect(140+100*i, 240, 40, times[i]*step);
 
     }

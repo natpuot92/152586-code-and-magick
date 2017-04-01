@@ -37,6 +37,7 @@ window.renderStatistics= function(ctx, names , times) {
   var histogramHeight = 150;
   var step = -150/max;
 
+
   for(var i=0; i<times.length; i++) {
 
 
@@ -44,14 +45,18 @@ window.renderStatistics= function(ctx, names , times) {
     ctx.fillText(parseInt(times[i]), 140+i*100, 230+times[i]*step);
   }
 
-    debugger //
+debugger
    function getRandomBlue() {
+    return Math.random();
+   }
 
-    var randomBlue= Math.random();
-  }
-    var randomBlue= getRandomBlue();
+var  randomBlue= getRandomBlue();
+var  RGBArandomBlue= randomBlue.toFixed(1);
 
-    console.log(randomBlue.toFixed(2));
+      debugger
+v ar rgbacolor = "rgba(0, 0, 255,"+ RGBArandomBlue")";
+
+
 
   for(var i=0; i<names.length; i++) {
     var name=names[i]
@@ -60,8 +65,7 @@ window.renderStatistics= function(ctx, names , times) {
         ctx.fillRect(140+100*i, 240, 40, times[i]*step);
     } else {
 
-
-      ctx.fillStyle= 'rgba(0, 0, 255, 1)';
+      ctx.fillStyle= "rgba(0, 0, 255, 1)";
       ctx.fillRect(140+100*i, 240, 40, times[i]*step);
 
     }

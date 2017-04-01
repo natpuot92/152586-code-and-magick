@@ -33,33 +33,24 @@ window.renderStatistics= function(ctx, names , times) {
     ctx.fillText(names[i], 140+i*100, 260);
   }
 
-
   var histogramHeight = 150;
   var step = -150/max;
 
-
   for(var i=0; i<times.length; i++) {
-
     ctx.fillStyle= 'black';
     ctx.fillText(parseInt(times[i]), 140+i*100, 230+times[i]*step);
   }
 
-
-
-
    function getRandomBlue() {
-  debugger
    var  randomBlue= Math.random();
-    var  RGBArandomBlue= randomBlue.toFixed(1);
+    var  RGBArandomBlue= randomBlue.toFixed(2);
      if (RGBArandomBlue<0.1) {
-       var  randomBlue= Math.random();
-    var  RGBArandomBlue= randomBlue.toFixed(1);
+      var RGBArandomBlue = 0.1;
       return RGBArandomBlue;
      } else {
       return RGBArandomBlue;
     }
    }
-
 
   for(var i=0; i<names.length; i++) {
     var name=names[i]
@@ -69,7 +60,6 @@ window.renderStatistics= function(ctx, names , times) {
     } else {
       ctx.fillStyle= 'rgba(0, 0, 255,' + getRandomBlue() +')';
       ctx.fillRect(140+100*i, 240, 40, times[i]*step);
-
     }
   }
 

@@ -395,6 +395,7 @@ window.Game = (function () {
 
         // Запуск игрового цикла.
         this.update();
+
       }.bind(this));
     },
 
@@ -549,6 +550,7 @@ window.Game = (function () {
 
       var loadSprite = function (sprite) {
         var image = new Image(sprite.width, sprite.height);
+
         image.onload = function () {
           sprite.image = image;
           if (--imagesToGo === 0) {

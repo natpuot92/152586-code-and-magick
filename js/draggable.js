@@ -40,11 +40,13 @@
 
   var inventaryElement = setup.querySelector('.setup-artifacts');
   var shopElement = setup.querySelector('.setup-artifacts-shop');
+  //var inventaryCell = setup.querySelector
   var draggedIeItem;
 
   shopElement.addEventListener('dragstart', function (evt) {
     if (evt.target.tagName.toLowerCase() === 'img') {
-      draggedIeItem = evt.target;
+      var newStar = evt.target.cloneNode(true);
+      draggedIeItem = newStar;
       inventaryElement.classList.add('inventary-start');
 
       shopElement.addEventListener('dragend', function (evt) {
@@ -71,9 +73,12 @@
   })
 
   inventaryElement.addEventListener('drop', function (evt) {
-    evt.target.style.backgroundColor = '';
-    evt.target.appendChild(draggedIeItem);
-    inventaryElement.classList.remove('inventary-start');
+    if (!evt.target.children[0]) {
+      evt.target.style.backgroundColor = '';
+      evt.target.appendChild(draggedIeItem);
+      inventaryElement.classList.remove('inventary-start');
+    } else {
+      evt.target.style.backgroundColor = '';
+    }
   });
-
 })()

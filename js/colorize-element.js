@@ -14,7 +14,6 @@
           callback(element, array);
           window.numberColor = window.numberColor + 1;
       };
-        //updateWizzards()
     });
   }
 })();

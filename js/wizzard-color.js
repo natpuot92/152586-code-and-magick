@@ -7,6 +7,15 @@
 
   var howFill = function (element, arrayColor) {
     element.style.fill = arrayColor[window.numberColor];
+    switch(element) {
+      case wizzardCoat:
+        window.coatColor = arrayColor[window.numberColor]
+        updateWizzards(wizzardData);
+        break
+      case wizzardEyes:
+        window.eyesColor = arrayColor[window.numberColor]
+        break
+    };
   }
 
   var howBackground = function (element, arrayColor) {
@@ -14,7 +23,9 @@
   }
 
   window.colorizeElement(wizzardCoat, window.coatColorArray, howFill);
+
   window.colorizeElement(wizzardEyes, window.eyesColorArray, howFill);
+
   window.colorizeElement(wizzardFirball, window.fireballColorArray, howBackground);
 
 })()

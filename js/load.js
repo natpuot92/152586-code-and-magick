@@ -11,6 +11,7 @@
         switch (xhr.status) {
         case 200:
           onLoad(wizzardData);
+            console.log(window.wizzardData);
           break;
         case 400:
           onError('Неверный запрос');

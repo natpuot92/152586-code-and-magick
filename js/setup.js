@@ -19,7 +19,18 @@
     showSimilarWizzard.classList.remove('hidden');
   };
 
+  var wizzardsError = function (errorText) {
+    var errorElement = document.createElement('div');
+    errorElement.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
+    errorElement.style.position = 'absolute';
+    errorElement.style.left = 0;
+    errorElement.style.right = 0;
+    errorElement.style.fontSize = '30px';
 
-  window.load('https://intensive-javascript-server-kjgvxfepjl.now.sh/code-and-magick/data', wizzards);
+    errorElement.textContent = errorText;
+    document.body.insertAdjacentElement('afterbegin', errorElement);
+  }
+
+  window.load('https://intensive-javascript-server-kjgvxfepjl.now.sh/code-and-magick/data', wizzards, wizzardsError);
 
 })();

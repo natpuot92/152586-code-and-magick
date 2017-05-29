@@ -7,30 +7,35 @@
   var similarWizzardShow = document.querySelector('.setup-similar-list');
   var fragment = document.createDocumentFragment();
 
+
+  var filterCoatArray = [];
+  var filterEyesArray = [];
   window.filtredColor = function (data, element) {
 
   window.filtredDataWizzards = data.filter(function(wizzard) {
     return wizzard[element] === window[element];
       })
-  var filterCoatArray = [];
-  var filterEyesArray = [];
+
     if (element === 'colorCoat') {
       filterCoatArray = window.filtredDataWizzards
     } else {
       filterEyesArray = window.filtredDataWizzards
     }
+
+
     var filterCoatArrayAndFilterEyesArray = filterCoatArray.concat(filterEyesArray).concat(data)
-    var finalArray = filterCoatArrayAndFilterEyesArray.filter(function (it, i) {
-      return filterCoatArrayAndFilterEyesArray.indexOf(it) === i;
-    });
 
     var sameCoatAndEyesWizards = data.filter(function (it) {
       return it.colorCoat === window.colorCoat &&
         it.colorEyes === window.colorEyes;
     });
 
-    finalArray = finalArray.concat(sameCoatAndEyesWizards);
-    console.log(finalArray);
+    var finalArray = sameCoatAndEyesWizards.concat(filterCoatArrayAndFilterEyesArray);
+console.log(finalArray);
+    finalArray = filterCoatArrayAndFilterEyesArray.filter(function (it, i) {
+      return filterCoatArrayAndFilterEyesArray.indexOf(it) === i;
+    });
+
     updateWizzards(finalArray);
   }
 

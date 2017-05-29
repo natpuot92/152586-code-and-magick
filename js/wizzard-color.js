@@ -9,11 +9,15 @@
     element.style.fill = arrayColor[window.numberColor];
     switch(element) {
       case wizzardCoat:
-        window.coatColor = arrayColor[window.numberColor]
-        updateWizzards(wizzardData);
+        window.colorCoat = arrayColor[window.numberColor];
+        window.filtredColor(wizzardData, 'colorCoat');
+
+
+
         break
       case wizzardEyes:
-        window.eyesColor = arrayColor[window.numberColor]
+        window.colorEyes = arrayColor[window.numberColor]
+        window.filtredColor(wizzardData, 'colorEyes');
         break
     };
   }

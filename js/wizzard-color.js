@@ -11,9 +11,6 @@
       case wizzardCoat:
         window.colorCoat = arrayColor[window.numberColor];
         window.filtredColor(wizzardData, 'colorCoat');
-
-
-
         break
       case wizzardEyes:
         window.colorEyes = arrayColor[window.numberColor]

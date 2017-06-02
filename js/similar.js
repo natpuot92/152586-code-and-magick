@@ -4,9 +4,11 @@
 
   var filterCoatArray = [];
   var filterEyesArray = [];
+  var lastTimeout;
+
   window.filtredColor = function (data, element) {
 
-  window.filtredDataWizzards = data.filter(function(wizzard) {
+  /*window.filtredDataWizzards = data.filter(function(wizzard) {
     return wizzard[element] === window[element];
       })
 
@@ -28,9 +30,32 @@
 
     finalArray = finalArray.filter(function (it, i) {
       return finalArray.indexOf(it) === i;
-    });
+    });*/
 
-    updateWizzards(finalArray);
+   var getRank = function (wizard) {
+    var rank = 0;
+
+    if (wizard.colorCoat === window.colorCoat) {
+      rank += 2;
+    }
+    if (wizard.colorEyes === window.colorEyes) {
+      rank += 1;
+    }
+    return rank;
+  }
+
+  var finalArray = data.sort(function (left, right) {
+      return getRank(right) - getRank(left);
+    });
+    console.log(finalArray);
+
+    if (lastTimeout) {
+      window.clearTimeout(lastTimeout);
+    }
+    lastTimeout = window.setTimeout(function () {
+        updateWizzards(finalArray);
+      }, 300)
+
   }
 
   var showSimilarWizzard = document.querySelector('.setup-similar');
@@ -58,3 +83,9 @@
   };
 
 })()
+
+
+
+
+
+

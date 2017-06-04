@@ -8,30 +8,6 @@
 
   window.filtredColor = function (data, element) {
 
-  /*window.filtredDataWizzards = data.filter(function(wizzard) {
-    return wizzard[element] === window[element];
-      })
-
-    if (element === 'colorCoat') {
-      filterCoatArray = window.filtredDataWizzards
-    } else {
-      filterEyesArray = window.filtredDataWizzards
-    }
-
-    var filterCoatArrayAndFilterEyesArray =
-      filterCoatArray.concat(filterEyesArray).concat(data)
-
-    var sameCoatAndEyesWizards = filterCoatArrayAndFilterEyesArray.filter(function (it) {
-      return it.colorCoat === window.colorCoat &&
-        it.colorEyes === window.colorEyes;
-    });
-
-    var finalArray = sameCoatAndEyesWizards.concat(filterCoatArrayAndFilterEyesArray);
-
-    finalArray = finalArray.filter(function (it, i) {
-      return finalArray.indexOf(it) === i;
-    });*/
-
    var getRank = function (wizard) {
     var rank = 0;
 
@@ -47,15 +23,13 @@
   var finalArray = data.sort(function (left, right) {
       return getRank(right) - getRank(left);
     });
-    console.log(finalArray);
 
     if (lastTimeout) {
       window.clearTimeout(lastTimeout);
     }
     lastTimeout = window.setTimeout(function () {
         updateWizzards(finalArray);
-      }, 300)
-
+      }, 300);
   }
 
   var showSimilarWizzard = document.querySelector('.setup-similar');
@@ -72,12 +46,16 @@
     for (var wizzardIndex = 0; wizzardIndex < data.length; wizzardIndex++) {
       if (wizzardIndex < 4) {
         var wizzardElement = similarWizzardTemplate.content.cloneNode(true);
+        var wizardElementArtifacts = wizzardElement.querySelector('.wizard');
         wizzardElement.querySelector('.setup-similar-label').textContent = data[wizzardIndex].name;
         wizzardElement.querySelector('.wizard-coat').style.fill = data[wizzardIndex].colorCoat;
         wizzardElement.querySelector('.wizard-eyes').style.fill = data[wizzardIndex].colorEyes;
+
+        window.handleShowHideWizardBag(wizardElementArtifacts, data[wizzardIndex]);
         fragment.appendChild(wizzardElement);
       }
     };
+
     similarWizzardShow.appendChild(fragment);
     showSimilarWizzard.classList.remove('hidden');
   };

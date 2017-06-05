@@ -2,35 +2,33 @@
 
 (function () {
 
-  var filterCoatArray = [];
-  var filterEyesArray = [];
   var lastTimeout;
 
   window.filtredColor = function (data, element) {
+    var getRank = function (wizard) {
+      var rank = 0;
 
-   var getRank = function (wizard) {
-    var rank = 0;
+      if (wizard.colorCoat === window.colorCoat) {
+        rank += 2;
+      }
+      if (wizard.colorEyes === window.colorEyes) {
+        rank += 1;
+      }
+      return rank;
+    };
 
-    if (wizard.colorCoat === window.colorCoat) {
-      rank += 2;
-    }
-    if (wizard.colorEyes === window.colorEyes) {
-      rank += 1;
-    }
-    return rank;
-  }
-
-  var finalArray = data.sort(function (left, right) {
+    var finalArray = data.sort(function (left, right) {
       return getRank(right) - getRank(left);
     });
 
     if (lastTimeout) {
       window.clearTimeout(lastTimeout);
     }
+
     lastTimeout = window.setTimeout(function () {
-        updateWizzards(finalArray);
-      }, 300);
-  }
+      updateWizzards(finalArray);
+    }, 300);
+  };
 
   var showSimilarWizzard = document.querySelector('.setup-similar');
   var similarWizzardTemplate = document.getElementById('similar-wizard-template');
@@ -39,7 +37,7 @@
 
   var updateWizzards = function (data) {
     var wizzardItems = document.querySelectorAll('.setup-similar-item');
-    wizzardItems.forEach(function(item) {
+    wizzardItems.forEach(function (item) {
       item.remove();
     });
 
@@ -54,16 +52,10 @@
         window.handleShowHideWizardBag(wizardElementArtifacts, data[wizzardIndex]);
         fragment.appendChild(wizzardElement);
       }
-    };
+    }
 
     similarWizzardShow.appendChild(fragment);
     showSimilarWizzard.classList.remove('hidden');
   };
 
-})()
-
-
-
-
-
-
+})();

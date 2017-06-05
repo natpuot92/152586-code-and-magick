@@ -2,26 +2,26 @@
 
 (function () {
 
-  window.setup =  document.querySelector('.setup');
+  window.setup = document.querySelector('.setup');
   var setupOppen = document.querySelector('.setup-open-icon');
-  var setupClose = setup.querySelector('.setup-close');
+  var setupClose = window.setup.querySelector('.setup-close');
 
   var onPopupEscPress = function (evt) {
     if (evt.keyCode === 27) {
-      closePopup()
+      closePopup();
     }
-  }
+  };
 
   var openPopup = function () {
-    setup.classList.remove('hidden');
+    window.setup.classList.remove('hidden');
     addEventListener('keydown', onPopupEscPress);
-  }
+  };
 
   var closePopup = function () {
-    setup.classList.add('hidden');
+    window.setup.classList.add('hidden');
     removeEventListener('keydown', onPopupEscPress);
-    setup.style.cssText = '';
-  }
+    window.setup.style.cssText = '';
+  };
 
   setupOppen.addEventListener('click', function () {
     openPopup();
@@ -39,9 +39,7 @@
 
   setupOppen.addEventListener('keydown', function (evt) {
     if (evt.keyCode === 13) {
-     openPopup();
+      openPopup();
     }
-  })
-
-
-})()
+  });
+})();

@@ -7,27 +7,26 @@
 
   var howFill = function (element, arrayColor) {
     element.style.fill = arrayColor[window.numberColor];
-    switch(element) {
+    switch (element) {
       case wizzardCoat:
         window.colorCoat = arrayColor[window.numberColor];
-        window.filtredColor(wizzardData, 'colorCoat');
-        break
+        window.filtredColor(window.wizzardData, 'colorCoat');
+        break;
       case wizzardEyes:
-        window.colorEyes = arrayColor[window.numberColor]
-        window.filtredColor(wizzardData, 'colorEyes');
-        break
-    };
-  }
+        window.colorEyes = arrayColor[window.numberColor];
+        window.filtredColor(window.wizzardData, 'colorEyes');
+        break;
+    }
+  };
 
   var howBackground = function (element, arrayColor) {
-   element.style.background = arrayColor[window.numberColor];
-  }
+    element.style.background = arrayColor[window.numberColor];
+  };
 
   window.colorizeElement(wizzardCoat, window.coatColorArray, howFill);
 
   window.colorizeElement(wizzardEyes, window.eyesColorArray, howFill);
 
   window.colorizeElement(wizzardFirball, window.fireballColorArray, howBackground);
-
-})()
+})();
 
